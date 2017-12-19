@@ -7,7 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env NODE_ENV=development babel-node build/server",
     "devServer": "cross-env NODE_ENV=development babel-node build/apiServer",
-    "start": "npm-run-all --parallel dev devServer"
+    "prod": "cross-env NODE_ENV=production babel-node build/server",
+    "prodServer": "cross-env NODE_ENV=production babel-node build/apiServer",
+    "start": "npm-run-all --parallel dev devServer",
+    "build": "npm-run-all --parallel prod prodServer"
   },
   "repository": {
     "type": "git",
