@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>年终奖的秘密</title>
+    <link rel="stylesheet" href="./popular.css"/>
+</head>
+<script src="./jquery-2.2.3.min.js"></script>
+<script src="./weChat.js"></script>
+<script>
+    const weChat = new WeChat('chat_token');
+
+    if (localStorage.getItem(weChat.getToken())) {
+        weChat.getUserInfo().then(data => {
+            console.log('chat',data)
+        })
+
+    } else {
+        weChat.redirect('/chat/auth.html')
+    }
+
+
+</script>
+<body>
+<div class="page1 png1">
+    <a class="answer"></a>
+    <a class="refuse"></a>
+    <i class="hide move_refuse"></i>
+    <span class="hodTime"></span>
+</div>
+<div class="groupChat hide">
+
+</div>
+<div class="bossChat hide"></div>
+<div class="typewriting hide"></div>
+<audio loop="loop" id="startSound" autoplay="autoplay">
+    <source src="./sound/startSound.mp3" type="audio/mpeg"/>
+</audio>
+<audio id="bossSound">
+    <source src="./sound/bossSound.mp4" type="audio/mpeg"/>
+</audio>
+<audio id="chatSound">
+    <source src="./sound/chatSound.mp3" type="audio/mpeg"/>
+</audio>
+
+</body>
+<script>
+    function resize() {
+        document.documentElement.style.fontSize = innerWidth / (18.75) + "px"
+    }
+    window.onresize = function () {
+        resize()
+    };
+    resize();
+</script>
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script>
+
+    weChat.sign({
+        title: '震惊 小马哥褪去了衣裳!',
+        desc: '老哥们一起上啊 哈啤哈啤!',
+        link: '',
+        imgUrl: 'http://scriptchao.viphk.ngrok.org/static/img/b.jpg'
+    });
+    weChat.setClose()
+</script>
+
+<script src="./popular.js"></script>
+</html>

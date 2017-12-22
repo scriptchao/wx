@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env NODE_ENV=development babel-node build/server",
-    "devServer": "cross-env NODE_ENV=development babel-node build/apiServer",
+    "devServer": "cross-env NODE_ENV=development nodemon --exec babel-node build/apiServer",
     "prod": "cross-env NODE_ENV=production babel-node build/server",
     "prodServer": "cross-env NODE_ENV=production babel-node build/apiServer",
     "start": "npm-run-all --parallel dev devServer",
@@ -25,13 +25,17 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "fs": "0.0.1-security",
     "http-proxy": "^1.16.2",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "wechat-oauth": "^1.2.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "cross-env": "^5.1.1",
+    "express-xml-bodyparser": "^0.3.0",
+    "nodemon": "^1.13.3",
     "npm-run-all": "^4.1.2"
   }
 }

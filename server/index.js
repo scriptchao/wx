@@ -1,8 +1,6 @@
 /**
  * Created by scriptchao on 2017/12/19.
  */
-import main from './api/main'
+import wx from './api/wx'
 
-export {
-    main
-}
+export {wx}

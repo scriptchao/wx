@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  box-sizing: border-box;
+  font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans MonoJAvU", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul,
+ol {
+  list-style: none;
+}
+i,
+em {
+  font-style: normal;
+}
+.png1 {
+  background: url("./image/page1.png");
+}
+.png2 {
+  background: url("./image/page2.jpg");
+}
+.png3 {
+  background: url("./image/page3.png");
+}
+.hide {
+  display: none;
+}
+.move_refuse {
+  width: 3.8rem;
+  height: 3.8rem;
+  border-radius: 50%;
+  background: url("./image/refuse.png");
+  background-size: 100% 100%;
+  position: absolute;
+  top: 74%;
+  right: 2.9rem;
+}
+.hodTime {
+  position: absolute;
+  top: 18%;
+  text-align: center;
+  display: inline-block;
+  color: #fff;
+  font-size: 0.8rem;
+  width: 100%;
+}
+.right {
+  position: relative;
+  float: right;
+}
+.left {
+  position: relative;
+  float: left;
+}
+.myText {
+  position: absolute;
+  top: 1rem;
+  left: 2.8rem;
+}
+.size14 {
+  font-size: 0.7rem;
+}
+.placeGroup {
+  top: 1.75rem;
+  left: 9.65rem;
+}
+.placeBoss {
+  bottom: 0.9rem;
+  right: 2rem;
+}
+.rect {
+  width: 0.1rem;
+  height: 1rem;
+  position: absolute;
+  background: #7290d7;
+  border-radius: 0.5px;
+  top: 0.8rem;
+  left: 2.5rem;
+}
+.pilot {
+  position: absolute;
+  display: block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 0.175rem #8d8d8d, 0 0 0 0.35rem #aaa, 0 0 0 0.525rem #c8c8c8, 0 0 0 0.35rem #e9e9e9;
+}
+.showPilot {
+  animation: pilot 1.3s linear infinite;
+}
+.page1 {
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  position: relative;
+}
+.page1 a {
+  width: 3.8rem;
+  height: 3.8rem;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  top: 74%;
+}
+.page1 .answer {
+  right: 2.9rem;
+}
+.page1 .refuse {
+  left: 2.8rem;
+}
+.groupChat {
+  width: 100%;
+  height: 100%;
+  background: #ebebeb;
+  background-image: url("./image/box.png");
+  background-size: 100% 2.5rem;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  padding: 0.5rem 0.5rem 2.5rem;
+  position: relative;
+}
+.groupChat .item {
+  margin-bottom: 0.7rem;
+  overflow: hidden;
+  position: relative;
+}
+.groupChat .item .icon {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  background-size: 100% 100%;
+}
+.groupChat .item img {
+  display: inline-block;
+  width: 50%;
+  height: 50%;
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
+}
+.bossChat {
+  width: 100%;
+  height: 100%;
+  background: #ebebeb;
+  background-image: url("./image/box.png");
+  background-size: 100% 2.5rem;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  padding: 0.5rem 0.5rem 2.5rem;
+  position: relative;
+}
+.bossChat .item {
+  margin-bottom: 0.7rem;
+  overflow: hidden;
+  position: relative;
+}
+.bossChat .item .icon {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  background-size: 100% 100%;
+}
+.bossChat .item img {
+  display: inline-block;
+  width: 50%;
+  height: 50%;
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
+}
+.typewriting {
+  background-image: url("./image/typewriting.png");
+  width: 100%;
+  height: 0;
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: 0;
+}
+@-moz-keyframes pilot {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes pilot {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-o-keyframes pilot {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes pilot {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}

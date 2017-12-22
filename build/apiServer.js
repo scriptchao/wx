@@ -3,13 +3,15 @@
  */
 import express from 'express'
 import bodyParser from 'body-parser'
-import {main} from '../server'
+import xmlParser from 'express-xml-bodyparser'
+import {wx} from '../server'
 import config from '../config'
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(xmlParser({explicitArray: false}));
 
 app.all('*', function (req, res, next) {
 
@@ -21,7 +23,8 @@ app.all('*', function (req, res, next) {
     }
 });
 
-app.use('/', main);
+app.use('/', wx);
+
 
 app.listen(config.apiPort, (err) => {
     if (err) {
