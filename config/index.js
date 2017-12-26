@@ -3,7 +3,7 @@
  */
 
 const devHost = '127.0.0.1';
-const prodHost = 'www.scriptchao.zyc';
+const prodHost = 'www.scriptchao.xyz';
 const devPort = 8282;
 const prodPort = 80;
 
