@@ -3,9 +3,9 @@
  */
 
 const devHost = '127.0.0.1';
-const prodHost = 'www.scriptchao.com';
+const prodHost = 'www.scriptchao.zyc';
 const devPort = 8282;
-const prodPort = 8080;
+const prodPort = 80;
 
 export default {
     host: process.env.NODE_ENV === 'development' ? devHost : prodHost,
