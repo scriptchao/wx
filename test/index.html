@@ -23,7 +23,7 @@
 <script src="./weChat.js"></script>
 <script>
 
-    const weChat = new WeChat('test_token');
+    const weChat = new WeChat('tttt_token');
 
     if (localStorage.getItem(weChat.getToken())) {
         weChat.getUserInfo().then(response => {
@@ -58,7 +58,9 @@
 <div onclick="getAddress()" class="btn">获取具体位置</div>
 <span id="tip5"></span>
 <div id="allmap" style="width:600px;height:600px"></div>
-<div onclick="chooseImage()" id="chooseImage" class="btn">拍照或从手机相册中选图6</div>
+<div onclick="scanQRCode()" class="btn">微信扫一扫</div>
+<div onclick="openAddress()" class="btn">共享收货地址</div>
+<div onclick="chooseImage()" id="chooseImage" class="btn">拍照或从手机相册中选图7</div>
 <img src="" id="img1"/>
 <div onclick="uploadImage()" class="btn">上传图片</div>
 <span class="hide" id="tip1">上传成功，请点击下载图片</span>
@@ -134,6 +136,31 @@
                 longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
                 $('#tip3').text(`经度 ：${longitude}`);
                 $('#tip4').text(`纬度 ：${latitude}`);
+            }
+        });
+    }
+
+    function scanQRCode() {
+        wx.scanQRCode({
+            needResult: 0, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+            scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+            success: function (res) {
+                var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+            }
+        });
+    }
+
+    function openAddress() {
+        wx.openAddress({
+            success: function (res) {
+                var userName = res.userName; // 收货人姓名
+                var postalCode = res.postalCode; // 邮编
+                var provinceName = res.provinceName; // 国标收货地址第一级地址（省）
+                var cityName = res.cityName; // 国标收货地址第二级地址（市）
+                var countryName = res.countryName; // 国标收货地址第三级地址（国家）
+                var detailInfo = res.detailInfo; // 详细收货地址信息
+                var nationalCode = res.nationalCode; // 收货地址国家码
+                var telNumber = res.telNumber; // 收货人手机号码
             }
         });
     }

@@ -13,6 +13,7 @@ const client = new OAuth(config.appId, config.appSecret);
 
 router.post('/user', (req, res) => { //snsapi_base 这一步不能获取到用户信息
     let {openid} = req.body;
+    console.log(openid);
 
     User.findOne({openid}, 'city country province imgUrl nickname sex -_id')
         .then(data => {
@@ -36,6 +37,7 @@ router.get('/callback', (req, res) => { // 通过code 获取openid 和 accessTok
             return
         }
         const openid = result.data.openid;
+        console.log('result',result);
 
         let options = {};
         options.openid = openid;

@@ -63,6 +63,8 @@ WeChat.prototype = {
                         'downloadImage', //下载图片
                         'getNetworkType', //获取网络状态接口
                         'getLocation', // 获取地理位置接口
+                        'scanQRCode', // 微信扫一扫
+                        'openAddress', // 共享收货地址接口
                         'closeWindow', // 关闭窗口
                     ]
                 });
