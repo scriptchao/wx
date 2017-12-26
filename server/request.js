@@ -3,7 +3,28 @@
  */
 
 import https from 'https'
+import http from 'http'
 import urltil from 'url'
+
+export function httpGet(url) {
+
+    return new Promise((resolve, reject) => {
+        http.get(url, (res) => {
+            let buffer = [], result = '';
+            res.on('data', (data) => {
+                buffer.push(data)
+            });
+
+            res.on('end', () => {
+                result = Buffer.concat(buffer).toString(); //length 所有buffer长度
+                resolve(result)
+            })
+        }).on('error', (err) => {
+            reject(err)
+        })
+    })
+
+}
 
 export function requestPost(url, data) {
     return new Promise((resolve, reject) => {

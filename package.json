@@ -23,10 +23,12 @@
   },
   "homepage": "https://github.com/scriptchao/wx#readme",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "fs": "0.0.1-security",
     "http-proxy": "^1.16.2",
+    "mongoose": "^4.13.7",
     "path": "^0.12.7",
     "wechat-oauth": "^1.2.1"
   },

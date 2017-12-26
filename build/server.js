@@ -17,8 +17,6 @@ app.use('/wx', (req, res) => {
     proxy.web(req, res, {target: apiUrl})
 });
 
-app.use('/static', express.static(path.join(__dirname, '..', 'static')));
-
 app.use('/', express.static(path.join(__dirname, '..')));
 
 app.listen(config.port, (err) => {

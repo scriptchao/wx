@@ -12,11 +12,21 @@ function WeChat(token) {
 }
 
 WeChat.prototype = {
+    isPC: function () {
+        let u = window.navigator.userAgent;
+        if (!u.match(/(iPhone|iPod|Android|ios|iPad)/i)) {
+            this.scope = 'snsapi_login';
+            return true
+        } else {
+            return false
+        }
+    },
     getToken: function () {
         return this.token
     },
     redirect: function (callback) {
         let url = encodeURIComponent(`${this.domain}${callback}`);
+
         location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${this.appId}&redirect_uri=${url}&response_type=code&scope=${this.scope}&state=state#wechat_redirect`
 
     },
@@ -42,11 +52,18 @@ WeChat.prototype = {
                     nonceStr: res.nonceStr,
                     signature: res.signature,
                     jsApiList: [
-                        'checkJsApi',
-                        'onMenuShareTimeline',
-                        'onMenuShareAppMessage',
-                        'onMenuShareQQ',
-                        'closeWindow'
+                        'checkJsApi', // 检查api
+                        'onMenuShareTimeline',//分享朋友圈
+                        'onMenuShareAppMessage', // 分享给朋友
+                        'onMenuShareQQ',//分享QQ
+                        'onMenuShareWeibo', //分享到微博
+                        'onMenuShareQZone',//分享到qq空间
+                        'chooseImage', // 选择图片
+                        'uploadImage', //上传图片
+                        'downloadImage', //下载图片
+                        'getNetworkType', //获取网络状态接口
+                        'getLocation', // 获取地理位置接口
+                        'closeWindow', // 关闭窗口
                     ]
                 });
                 wx.ready(function () {
@@ -56,6 +73,8 @@ WeChat.prototype = {
                     wx.onMenuShareAppMessage(shareData);
                     wx.onMenuShareTimeline(shareData);
                     wx.onMenuShareQQ(shareData);
+                    wx.onMenuShareWeibo(shareData);
+                    wx.onMenuShareQZone(shareData);
                 });
                 wx.error(function (res) {
                     alert(res.errMsg);

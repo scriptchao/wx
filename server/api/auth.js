@@ -6,16 +6,24 @@ import OAuth from 'wechat-oauth'
 import config from '../wx/config'
 import {getToken, getTicket} from '../wx/auth'
 import {sign, responseClient} from '../util'
+import User from '../models/user'
 
 const router = express.Router();
 const client = new OAuth(config.appId, config.appSecret);
 
-router.post('/user', (req, res) => {
+router.post('/user', (req, res) => { //snsapi_base 这一步不能获取到用户信息
     let {openid} = req.body;
 
-    client.getUser(openid, (err, user) => {
+    User.findOne({openid}, 'city country province imgUrl nickname sex -_id')
+        .then(data => {
+            if (data) {
+                responseClient(res, 200, 1, '获取用户信息成功!', data)
 
-        responseClient(res, 200, 1, '获取用户信息成功!', user)
+            } else {
+                responseClient(res, 200, 0, '获取用户信息失败!')
+            }
+        }).catch(err => {
+        responseClient(res)
     })
 });
 
@@ -27,13 +35,38 @@ router.get('/callback', (req, res) => { // 通过code 获取openid 和 accessTok
             console.error('getAccessToken error: ', err);
             return
         }
-        // const accessToken = result.data.access_token;
         const openid = result.data.openid;
-        let data = {};
-        data.openid = openid;
 
-        responseClient(res, 200, 1, '获取用户openid成功!', data);
+        let options = {};
+        options.openid = openid;
 
+        User.findOne({openid})
+            .then(data => {
+
+                if (data) {
+                    responseClient(res, 200, 1, '获取用户openid成功!', options);
+                } else {
+                    client.getUser(openid, (err, data) => {
+                        let {openid, nickname, sex, language, city, province, country} = data;
+                        let user = new User({
+                            openid,
+                            nickname,
+                            sex,
+                            language,
+                            city,
+                            province,
+                            country,
+                            imgUrl: data.headimgurl
+                        });
+
+                        user.save().then(() => {
+                            responseClient(res, 200, 1, '获取用户openid成功!', options);
+                        })
+                    })
+                }
+            }).catch(err => {
+            responseClient(res)
+        });
     })
 });
 

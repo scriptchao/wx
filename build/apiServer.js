@@ -4,6 +4,8 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import xmlParser from 'express-xml-bodyparser'
+import mongoose from 'mongoose'
+import blueBird from 'bluebird'
 import {wx} from '../server'
 import config from '../config'
 
@@ -25,11 +27,23 @@ app.all('*', function (req, res, next) {
 
 app.use('/', wx);
 
+mongoose.Promise = blueBird;
 
-app.listen(config.apiPort, (err) => {
+mongoose.connect(`mongodb://${config.dbHost}:${config.dbPort}/wx`, {useMongoClient: true}, function (err) {
     if (err) {
-        console.error('err:', err);
-    } else {
-        console.info(`===> api server is running at ${config.apiHost}:${config.apiPort}`)
+        console.log(err, "数据库连接失败");
+        return;
     }
+    console.log('数据库连接成功');
+
+    app.listen(config.apiPort, (err) => {
+        if (err) {
+            console.error('err:', err);
+        } else {
+            console.info(`===> api server is running at ${config.apiHost}:${config.apiPort}`)
+        }
+    });
 });
+
+
+
