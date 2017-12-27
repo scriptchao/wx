@@ -3,10 +3,10 @@
  */
 
 const token = 'scriptchao2017';
-// const appId = 'wxe08322042000750c';
-const appId = 'wxc568eb37e4f5302a';
-// const appSecret = 'f05865d4304020cfa6c99a052bfed8aa';
-const appSecret = 'e9956be4176cb0c0c1909bbd5a947ab4';
+const appId = 'wxe08322042000750c';
+// const appId = 'wxc568eb37e4f5302a';
+const appSecret = 'f05865d4304020cfa6c99a052bfed8aa';
+// const appSecret = 'e9956be4176cb0c0c1909bbd5a947ab4';
 const apiDomain = 'https://api.weixin.qq.com';
 const domain = 'http://scriptchao.viphk.ngrok.org';
 const scope = 'snsapi_userinfo';
