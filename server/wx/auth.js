@@ -5,7 +5,7 @@ import fs from 'fs'
 import path from 'path'
 import accessToken from './access_token.json'
 import jsApiTicket from './jsapi_ticket.json'
-import config from './config'
+import config from '../../config'
 import {requestGet, requestPost} from '../request'
 
 export function getTicket() {

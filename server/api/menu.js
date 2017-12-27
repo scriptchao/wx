@@ -5,7 +5,7 @@
 import express from 'express'
 import menu from '../wx/menu.json'
 import {getToken} from '../wx/auth'
-import config from '../wx/config'
+import config from '../../config'
 import {requestPost} from '../request'
 
 const router = express.Router();

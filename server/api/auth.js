@@ -3,7 +3,7 @@
  */
 import express from 'express'
 import OAuth from 'wechat-oauth'
-import config from '../wx/config'
+import config from '../../config'
 import {getToken, getTicket} from '../wx/auth'
 import {sign, responseClient} from '../util'
 import User from '../models/user'
@@ -37,7 +37,7 @@ router.get('/callback', (req, res) => { // 通过code 获取openid 和 accessTok
             return
         }
         const openid = result.data.openid;
-        console.log('result',result);
+        console.log('result', result);
 
         let options = {};
         options.openid = openid;
@@ -84,7 +84,7 @@ router.post('/signature', (req, res) => {
         getTicket().then(ticket => {
             let signatureStr = sign(ticket, req.body.url);
             signatureStr.appId = config.appId;
-            res.send(signatureStr)
+            responseClient(res, 200, 1, '算法校验成功!', signatureStr)
         })
     })
 });

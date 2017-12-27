@@ -4,7 +4,7 @@
 
 import express from 'express'
 import {txtMsg, graphicMsg} from '../wx/msg'
-import config from '../wx/config'
+import config from '../../config'
 import {sha1} from '../util'
 
 const router = express.Router();
