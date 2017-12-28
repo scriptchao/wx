@@ -5,6 +5,7 @@
 import React from 'react'
 import {inject, observer} from 'mobx-react'
 import {Route, Switch, Redirect, BrowserRouter} from 'react-router-dom'
+import '../styles/index.sass'
 import {Test} from '../test'
 
 @observer
