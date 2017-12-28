@@ -10,7 +10,7 @@ import baseConfig from './webpack.base'
 
 const rootPath = path.resolve(__dirname, '..');
 const entryPath = path.join(rootPath, 'app');
-const outputPath = path.join(rootPath, 'docs');
+const outputPath = path.join(rootPath, 'dist');
 
 const devConfig = {
     entry: {

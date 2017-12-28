@@ -14,7 +14,7 @@ import baseConfig from './webpack.base'
 
 const rootPath = path.resolve(__dirname, '..');
 const entryPath = path.join(rootPath, 'app');
-const outputPath = path.join(rootPath, 'docs');
+const outputPath = path.join(rootPath, 'dist');
 
 const prodConfig = {
     entry: {
@@ -53,7 +53,7 @@ const prodConfig = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin('docs', {
+        new CleanWebpackPlugin('dist', {
             root: rootPath
         }),
         new CopyWebpackPlugin([

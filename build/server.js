@@ -47,7 +47,7 @@ if (process.env.NODE_ENV === 'development') {
 
     app.use('/', connectHistoryApiFallback());
 
-    app.use('/', express.static(path.join(__dirname, '..', 'docs')));
+    app.use('/', express.static(path.join(__dirname, '..', 'dist')));
 }
 
 app.listen(config.port, (err) => {
