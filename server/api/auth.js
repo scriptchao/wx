@@ -82,6 +82,7 @@ router.get('/token', (req, res) => {
 router.post('/signature', (req, res) => {
     getToken().then(token => {
         getTicket().then(ticket => {
+            console.log('2',req.body.url);
             let signatureStr = sign(ticket, req.body.url);
             signatureStr.appId = config.appId;
             responseClient(res, 200, 1, '算法校验成功!', signatureStr)

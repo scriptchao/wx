@@ -15,6 +15,7 @@ class AuthStore {
 
 
     @action postAuthSignature(shareData) {
+        console.log('1',location.href.split('#')[0]);
 
         return xhr({
             method: 'post',
@@ -22,6 +23,7 @@ class AuthStore {
             body: {url: location.href.split('#')[0]}
         }).then(response => {
             if (response.result) {
+                console.log('3',response.data.url);
                 wx.config({
                     debug: false,
                     appId: response.data.appId,

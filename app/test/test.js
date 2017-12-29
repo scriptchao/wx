@@ -58,7 +58,7 @@ class Test extends React.Component {
     }
 
     componentDidMount() {
-        // weChat.setClose();
+        weChat.setClose();
         let shareData = {
             title: '美滋滋!',
             desc: '杀鸡就是要用牛刀哦!',
