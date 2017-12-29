@@ -32,8 +32,6 @@ if (process.env.NODE_ENV === 'development') {
 
     app.use('/', connectHistoryApiFallback()); // 访问任何地址时指向根目录
 
-    app.use('/', express.static(path.join(__dirname, '..')));
-
     app.use(webpackDevMiddleware(compiler, {
         noInfo: true,
         publicPath: '/',// 虚拟目录
