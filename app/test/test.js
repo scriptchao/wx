@@ -63,7 +63,7 @@ class Test extends React.Component {
             title: '美滋滋!',
             desc: '杀鸡就是要用牛刀哦!',
             link: '',
-            imgUrl: 'http://scriptchao.viphk.ngrok.org/static/img/a.jpg',
+            imgUrl: '',
         };
 
         this.authStore.postAuthSignature(shareData).then(response => {
@@ -113,7 +113,7 @@ class Test extends React.Component {
 
                             }, 2000)
                         })
-                    }}>获取网络状态
+                    }}>获取网络状态111
                     </Button>
                     <Button plain className="btn" onClick={() => {
                         weChat.getLocation().then(data => {

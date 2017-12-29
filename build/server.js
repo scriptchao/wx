@@ -2,6 +2,7 @@
  * Created by scriptchao on 2017/12/19.
  */
 
+import fs from 'fs'
 import path from 'path'
 import webpack from 'webpack'
 import express from 'express'
@@ -13,6 +14,8 @@ import compression from 'compression'
 import config from '../config'
 import devConfig from './webpack.dev'
 import prodConfig from './webpack.prod'
+
+const rootPath = path.resolve(__dirname, '..');
 
 const app = express();
 const apiUrl = `http://${config.apiHost}:${config.apiPort}`;
@@ -39,8 +42,12 @@ if (process.env.NODE_ENV === 'development') {
 
     app.use(webpackHotMiddleware(compiler));
 } else {
-    webpack(prodConfig, (err, stats) =>
-        console.log('the static files have been generated,please open browser for watch')
+    webpack(prodConfig, (err, stats) => {
+            console.log('the static files have been generated,please open browser for watch');
+            const readStream = fs.createReadStream(path.join(rootPath, 'MP_verify_uF5mhdUrM79E1Z6Z.txt'));
+            const writeStream = fs.createWriteStream(path.join(rootPath, 'dist', 'MP_verify_uF5mhdUrM79E1Z6Z.txt'));
+            readStream.pipe(writeStream)
+        }
     );
 
     app.use('/', connectHistoryApiFallback());
