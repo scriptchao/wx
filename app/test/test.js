@@ -58,12 +58,12 @@ class Test extends React.Component {
     }
 
     componentDidMount() {
-        weChat.setClose();
+        // weChat.setClose();
         let shareData = {
             title: '美滋滋!',
             desc: '杀鸡就是要用牛刀哦!',
             link: '',
-            imgUrl: '',
+            imgUrl: '/static/img/a.jpg',
         };
 
         this.authStore.postAuthSignature(shareData).then(response => {
