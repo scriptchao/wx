@@ -13,8 +13,13 @@ const token = 'scriptchao2017';
 const apiDomain = 'https://api.weixin.qq.com';
 
 // production
-const appId = 'wxe08322042000750c';
-const appSecret = 'f05865d4304020cfa6c99a052bfed8aa';
+// const appId = 'wxe08322042000750c';
+// const appSecret = 'f05865d4304020cfa6c99a052bfed8aa';
+// const domain = 'http://www.scriptchao.xyz';
+
+// production ref
+const appId = 'wxc568eb37e4f5302a';
+const appSecret = 'e9956be4176cb0c0c1909bbd5a947ab4';
 const domain = 'http://www.scriptchao.xyz';
 
 // development
