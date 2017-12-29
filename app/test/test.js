@@ -61,7 +61,7 @@ class Test extends React.Component {
         weChat.setClose();
         let shareData = {
             title: '美滋滋!',
-            desc: '杀鸡就是要用牛刀!',
+            desc: '杀鸡就是要用牛刀哦!',
             link: '',
             imgUrl: 'http://scriptchao.viphk.ngrok.org/static/img/a.jpg',
         };
