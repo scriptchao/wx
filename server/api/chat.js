@@ -30,13 +30,13 @@ router.post('/', (req, res) => { // 接受消息
                     {
                         title: '老哥你好!',
                         description: '不好意思,没有描述!',
-                        picUrl: 'http://scriptchao.viphk.ngrok.org/static/img/a.jpg',
+                        picUrl: '/static/img/a.jpg',
                         url: 'https://www.baidu.com'
                     },
                     {
                         title: '稳不稳!',
                         description: '不好意思,没有描述!',
-                        picUrl: 'http://scriptchao.viphk.ngrok.org/static/img/b.jpg',
+                        picUrl: '/static/img/b.jpg',
                         url: 'https://www.baidu.com'
                     }
                 ];

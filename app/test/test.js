@@ -37,12 +37,12 @@ class Test extends React.Component {
     }
 
     componentWillMount() {
-        // if (localStorage.getItem(config.token)) {
-        //     this.getUserInfo()
-        //
-        // } else {
-        //     weChat.redirect('test')
-        // }
+        if (localStorage.getItem(config.token)) {
+            this.getUserInfo()
+
+        } else {
+            weChat.redirect('test')
+        }
     }
 
     getUserInfo() {
@@ -72,7 +72,7 @@ class Test extends React.Component {
             }
         });
 
-        // weChat.setClose();
+        weChat.setClose();
     }
 
     getAddress() {
