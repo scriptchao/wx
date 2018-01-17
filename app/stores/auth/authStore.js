@@ -15,6 +15,7 @@ class AuthStore {
 
 
     @action postAuthSignature(shareData) {
+        shareData.imgUrl = `${config.domain}${shareData.imgUrl}`;
 
         return xhr({
             method: 'post',
